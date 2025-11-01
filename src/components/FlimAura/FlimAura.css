@@ -1,0 +1,366 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 1rem 2rem;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Logo section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 75px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  color: #f50000;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* ===== Slideshow Styles ===== */
+.slideshow-container {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  overflow: hidden;
+  
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.slideshow-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.slideshow-title {
+  text-align: center;
+  color: #ffcc00;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: fadeText 1s ease-in-out;
+}
+/* ===== Horizontal Slider Section ===== */
+.slider-container {
+  position: relative;
+  width: 90%;
+  margin: 3rem auto;
+  overflow: hidden;
+  background: #1e1e2f;
+  border-radius: 15px;
+  padding: 1rem 0;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+
+/* 4-column responsive grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* responsive fallback */
+@media (max-width: 900px) {
+  .movie-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .movie-grid { grid-template-columns: 1fr; }
+}
+
+/* slider wrapper */
+.slider-wrapper {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 12px 0;
+}
+.slider-wrapper::-webkit-scrollbar { display: none; }
+
+.slide img { width: 250px; height: 350px; object-fit: cover; border-radius: 8px; }
+
+.slide:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.slide-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    flex: 0 0 100%;
+  }
+}
+
+@keyframes fadeText {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #1e1e2f;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+}
+
+/* Movie Section */
+.movie-section {
+  padding: 2rem;
+  background: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+}
+
+/* Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.movie-card {
+  background: #1e1e2f;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.movie-title {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+/* --- Fullscreen Slideshow --- */
+.slideshow-fullscreen {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide-title {
+  position: absolute;
+  bottom: 80px;
+  left: 50px;
+  color: rgb(229, 232, 87);
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(254, 247, 247, 0.8);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  );
+  z-index: 1;
+}
+.slide-title {
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== ABOUT PAGE STYLES ===== */
+.about-page {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-section {
+  width: 90%;
+  max-width: 900px;
+  margin: 100px auto 60px;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ff4655; /* red accent like a cinema glow */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+.about-highlight {
+  background: rgba(255, 70, 85, 0.1);
+  border: 1px solid rgba(255, 70, 85, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.about-highlight h3 {
+  color: #ff4655;
+  margin-bottom: 0.5rem;
+}
